@@ -71,7 +71,7 @@
       ];
         
     // USEFUL VARIABLES TO ACCESS HTML ELEMENTS
-      let currentQuestionIndex = 0;
+     let currentQuestionIndex = 0;
 
       const startButton = document.getElementById("start");
       const startScreen = document.getElementById("start-screen");
@@ -79,14 +79,32 @@
       const questionTitle = document.getElementById("question-title");
       const choicesContainer = document.getElementById("choices");
 
+      // START BUTTON ON CLICK
+      startButton.addEventListener("click", startQuiz);
 
-      
-      // ACCESSING DISPLAY
-      startScreen.style.display = "none";
-      questionsContainer.style.display = "block";
-
-        // TIMER THAT WILL BEGIN WHEN QUIZ STARTS
+      function startQuiz() {
+        startScreen.style.display = "none";
+        questionsContainer.style.display = "block";
+        loadQuestion();
+        // fix timer
         timer = setInterval(updateTimer, 1000);
+      }
+
+      //FUNCTION TO LOAD QUESTION
+      function loadQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionTitle.textContent = currentQuestion.question;
+        choicesContainer.innerHTML = "";
+
+        currentQuestion.options.forEach((option, index) => {
+          const optionButton = document.createElement("button");
+          optionButton.textContent = option;
+          optionButton.addEventListener("click", () =>
+            checkAnswer(option, currentQuestion.correctAnswer)
+          );
+          choicesContainer.appendChild(optionButton);
+        });
+      }
     </script>
 
 
