@@ -11,7 +11,11 @@ During the development of this project, I gained insights into creating interact
 
 ## Installation
 
-To run the Coding Quiz Challenge, simply access the URL.
+To run the Coding Quiz Challenge, simply access the URL:
+https://tuupuu.github.io/api-quiz/
+
+Repo for this project can be accessed here:
+https://github.com/TuuPuu/api-quiz
 
 ## Usage
 
